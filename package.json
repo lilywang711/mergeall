@@ -3,18 +3,35 @@
   "version": "0.0.2",
   "description": "能自动将 master 分支代码合并到其余所有分支的工具",
   "main": "index.js",
+  "bin": {
+    "mergeall": "bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lilywang711/auto-merge-branches.git"
+    "url": "git+https://github.com/lilywang711/mergeall.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lilywang711/auto-merge-branches/issues"
+    "url": "https://github.com/lilywang711/mergeall/issues"
   },
-  "homepage": "https://github.com/lilywang711/auto-merge-branches#readme"
+  "homepage": "https://github.com/lilywang711/mergeall#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "prettier": "^2.0.5",
+    "ramda": "^0.27.0",
+    "simple-git": "^2.5.0"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  }
 }
