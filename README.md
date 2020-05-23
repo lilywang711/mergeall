@@ -3,7 +3,7 @@ A tool that automatically merges master branch code to all remaining branches an
 ## Installation
 
 ```bash
-npm install @lilywang711/mergeall -g
+npm install @lilywang/mergeall -g
 ```
 
 ## Usage
@@ -11,6 +11,8 @@ npm install @lilywang711/mergeall -g
 Go to a project directory and execute `mergeall` from the command line
 
 ![image-20200523154230971](assets/image-20200523154230971.png)
+
+Note: conflicting branches will be skipped.
 
 ## Contributing
 

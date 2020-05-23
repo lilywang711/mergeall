@@ -1,7 +1,7 @@
 {
   "name": "@lilywang/mergeall",
-  "version": "0.0.2",
-  "description": "能自动将 master 分支代码合并到其余所有分支的工具",
+  "version": "1.0.1",
+  "description": "A tool that automatically merges master branch code to all remaining branches and commits it to the remote",
   "main": "index.js",
   "bin": {
     "mergeall": "bin/index.js"
@@ -15,7 +15,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lilywang711/mergeall/issues"
   },
