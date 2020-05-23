@@ -10,7 +10,8 @@ npm install @lilywang/mergeall -g
 
 Go to a project directory and execute `mergeall` from the command line
 
-![image-20200523154230971](assets/image-20200523154230971.png)
+![image-20200523163232613](assets/image-20200523163232613.png)
+
 
 Note: conflicting branches will be skipped.
 

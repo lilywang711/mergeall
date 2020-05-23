@@ -19,7 +19,7 @@ Merge.prototype.start = async function () {
     process.exit(1);
   }
   await this.getLocalBranch();
-  logger('start merge...');
+  logger('Start merge...');
 
   const allRemotesName = getRemotesName(await this.git.getRemotes());
   const allBranch = getRemoteBranch((await this.git.branch()).all);
@@ -31,7 +31,7 @@ Merge.prototype.start = async function () {
   this.log();
   const diff = diffBranch(this.localBranch, allBranch);
   await this.git.deleteLocalBranches(diff, true);
-  logger('Merger completed', 'success');
+  logger('Merge completed', 'success');
 };
 
 Merge.prototype.mergeCode = async function (remote, branch) {
