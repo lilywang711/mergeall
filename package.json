@@ -1,6 +1,6 @@
 {
   "name": "@lilywang/mergeall",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A tool that automatically merges master branch code to all remaining branches and commits it to the remote",
   "main": "index.js",
   "bin": {
