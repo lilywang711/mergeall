@@ -22,15 +22,20 @@ Merge.prototype.start = async function () {
   logger('Start merge...');
 
   const allRemotesName = getRemotesName(await this.git.getRemotes());
-  const allBranch = getRemoteBranch((await this.git.branch()).all);
+  const remoteBranch = getRemoteBranch((await this.git.branch()).all);
+  const localBranch = await this.git.branchLocal().all;
+  const allBranch = [...remoteBranch, ...localBranch];
+
   for (const remote of allRemotesName) {
     for (const branch of allBranch) {
-      await this.mergeCode(remote, branch);
+      if (branch !== fromBranch) {
+        await this.mergeCode(remote, branch);
+      }
     }
   }
   this.log();
   const diff = diffBranch(this.localBranch, allBranch);
-  await this.git.deleteLocalBranches(diff, true);
+  diff.length && (await this.git.deleteLocalBranches(diff, true));
   logger('Merge completed', 'success');
 };
 
