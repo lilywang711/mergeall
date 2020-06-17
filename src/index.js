@@ -23,7 +23,7 @@ Merge.prototype.start = async function () {
 
   const allRemotesName = getRemotesName(await this.git.getRemotes());
   const remoteBranch = getRemoteBranch((await this.git.branch()).all);
-  const localBranch = await this.git.branchLocal().all;
+  const localBranch = (await this.git.branchLocal()).all;
   const allBranch = [...remoteBranch, ...localBranch];
 
   for (const remote of allRemotesName) {
@@ -48,10 +48,16 @@ Merge.prototype.mergeCode = async function (remote, branch) {
       const mergeSummary = await this.git
         .silent(true)
         .mergeFromTo(fromBranch, branch);
-      this.success.push({ id: path.join(remote, branch), merge: mergeSummary });
+      this.success.push({
+        id: path.join(remote, branch),
+        merge: mergeSummary
+      });
       await this.git.push(remote, branch);
     } catch (err) {
-      this.conflicts.push({ id: path.join(remote, branch), merge: err.git });
+      this.conflicts.push({
+        id: path.join(remote, branch),
+        merge: err.git
+      });
       await this.git.merge(['--abort']);
       await this.git.clean('f');
     }
@@ -71,10 +77,11 @@ Merge.prototype.log = function () {
       success
     );
   }
+
   function logConflicts(conflicts) {
     return R.map(
       item =>
-        `[${item.id}] branch has been skipped (${item.merge.conflicts.length} conflicts on merge)`,
+      `[${item.id}] branch has been skipped (${item.merge.conflicts.length} conflicts on merge)`,
       conflicts
     );
   }
