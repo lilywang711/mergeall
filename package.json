@@ -24,7 +24,7 @@
     "colors": "^1.4.0",
     "prettier": "^2.0.5",
     "ramda": "^0.27.0",
-    "simple-git": "^2.5.0"
+    "simple-git": "^3.16.0"
   },
   "prettier": {
     "printWidth": 80,
